@@ -67,7 +67,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy3.pipelines.JsonWithEncodingPipeline': 2,
+   'scrapy3.pipelines.JsonWithEncodingPipeline':2,
    #'scrapy.pipelines.images.ImagesPipeline':1,      #调用scrapy下piplines自带的images方法
     'scrapy3.pipelines.ScrapyImagePipeline':1,
 }

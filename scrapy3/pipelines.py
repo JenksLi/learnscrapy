@@ -6,7 +6,6 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import json
-import codecs
 from scrapy.pipelines.images import ImagesPipeline
 
 class Scrapy3Pipeline(object):
@@ -15,8 +14,8 @@ class Scrapy3Pipeline(object):
 
 class JsonWithEncodingPipeline(object):
     def __init__(self):
-        self.file = codecs.open('article.json','a',encoding='utf8')
-    def writeJson(self, item, spider):
+        self.file = open('article.json','w',encoding='utf8')
+    def process_item(self, item, spider):
         lines = json.dumps(dict(item),ensure_ascii=False) + "\n"
         self.file.write(lines)
         return item

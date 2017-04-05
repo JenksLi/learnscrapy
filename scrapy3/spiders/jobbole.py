@@ -34,7 +34,7 @@ class JobboleSpider(scrapy.Spider):
         cover = response.meta.get('cover_img','')   #封面图URL
         title = response.xpath('//div[@class="entry-header"]/h1/text()').extract_first('')
         time = response.xpath('//div[@class="entry-meta"]/p/text()').extract()[0].strip()[:10]
-        content = ''.join([i.strip() for i in  response.xpath('//div[@class="entry"]//p//following-sibling::*/descendant-or-self::*/text()').extract()])
+        content = ''.join([i.strip() for i in  response.xpath('//div[@class="entry"]//p//following-sibling::*[not(div)]/descendant-or-self::*/text()').extract()])
         tag = response.xpath('//p[@class="entry-meta-hide-on-mobile"]/a/text()').extract_first('')
 
         #将字段加入item
